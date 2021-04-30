@@ -25,5 +25,18 @@ namespace ParkingProject.MVC.Controllers
             return View(_mapper.Map<List<GarageViewModel>>(allGarages));
 
         }
+
+        public IActionResult Details(Guid id)
+        {
+            var garage = _garageService.GetGarageById(id);
+            return View(_mapper.Map<GarageViewModel>(garage));
+        }
+
+        public IActionResult Add()
+        {
+            var garageCreation = new GarageViewModel();
+
+            return View(garageCreation);
+        }
     }
 }

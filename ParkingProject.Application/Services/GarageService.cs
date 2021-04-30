@@ -17,7 +17,8 @@ namespace ParkingProject.Application.Services
         }
         public Garage GetGarageById(Guid id)
         {
-            throw new NotImplementedException();
+            var garage = _garageRepository.GetById(id);
+            return garage;
         }
 
         public IEnumerable<Garage> GetGarages()

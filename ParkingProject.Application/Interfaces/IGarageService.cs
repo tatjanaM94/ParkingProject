@@ -10,5 +10,11 @@ namespace ParkingProject.Application.Interfaces
         IEnumerable<Garage> GetGarages();
         Garage GetGarageById(Guid id);
 
+        void InsertGarage(Garage garage);
+
+        //edit method
+
+        // delete method
+
     }
 }
