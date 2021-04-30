@@ -22,6 +22,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\ParkingProject.Application\ParkingProject.Application.csproj" />
     <ProjectReference Include="..\ParkingProject.Infrastucture.Data\ParkingProject.Infrastucture.Data.csproj" />
   </ItemGroup>
 
