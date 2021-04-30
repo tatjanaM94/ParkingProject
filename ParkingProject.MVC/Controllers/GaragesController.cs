@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using ParkingProject.Application.Interfaces;
+using ParkingProject.Domain.Models;
 using ParkingProject.MVC.Models.Garages;
 using System;
 using System.Collections.Generic;
@@ -38,5 +39,16 @@ namespace ParkingProject.MVC.Controllers
 
             return View(garageCreation);
         }
+
+        [HttpPost]
+        public IActionResult Add(GarageViewModel model)
+        {
+            var garageEntityForCreation = _mapper.Map<Garage>(model);
+            _garageService.InsertGarage(garageEntityForCreation);
+
+            return RedirectToAction("Index");
+        }
+
+        
     }
 }

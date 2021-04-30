@@ -27,5 +27,18 @@ namespace ParkingProject.Application.Services
             garages = _garageRepository.GetAll().ToList();
             return garages;
         }
+
+        public void InsertGarage(Garage garage)
+        {
+            var addGarage = _garageRepository.GetAll().Where(x => x.Name == garage.Name).FirstOrDefault();
+           
+            if (addGarage!= null)
+            {
+                throw new Exception("The Garage With That Name Already Exists");
+            }
+            garage.Id = Guid.NewGuid();
+            _garageRepository.Add(garage);
+            _garageRepository.SaveChanges();
+        }
     }
 }
