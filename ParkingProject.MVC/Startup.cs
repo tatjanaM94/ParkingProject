@@ -6,6 +6,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using ParkingProject.Infrastucture.Data.Context;
+using ParkingProject.MVC.Mappers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,6 +31,8 @@ namespace ParkingProject.MVC
 
             services.AddDbContext<LibraryDbContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("MyConnectionString")));
+
+            services.AddAutoMapper(typeof(GarageMapper));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
