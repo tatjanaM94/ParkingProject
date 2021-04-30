@@ -1,3 +1,44 @@
-﻿<h1>
-    List Of Garages
-</h1>
+﻿@model IEnumerable<ParkingProject.MVC.Models.Garages.GarageViewModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<a class="btn btn-success align-self-center" asp-controller="Garages" , asp-action="Add">Add New Garage</a>
+<hr />
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MaxCarsInStock)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Address)
+                </td>
+                <td>
+                    @item.MaxCarsInStock
+                </td>
+                <td>
+                    <a class="btn btn-info" asp-controller="Garages" , asp-action="Details" asp-route-id="@item.Id">Details</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
