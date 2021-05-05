@@ -14,6 +14,9 @@ namespace ParkingProject.Application.Interfaces
 
         // edit car
 
+        void EditCar(Car car);
+
         // delete car
+        void Delete(Guid id);
     }
 }

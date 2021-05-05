@@ -55,6 +55,22 @@ namespace ParkingProject.MVC.Controllers
             return RedirectToAction("Index");
         }
 
+        public IActionResult Edit(Guid id)
+        {
+            var garage = _garageService.GetGarageById(id);
+            return View(_mapper.Map<GarageViewModel>(garage));
+        }
+
+        [HttpPost]
+        public IActionResult Edit(GarageViewModel model)
+        {
+            var garageForEdit = _mapper.Map<Garage>(model);
+            _garageService.EditGarage(garageForEdit);
+
+            return RedirectToAction("Index");
+
+        }
+
         
     }
 }

@@ -25,7 +25,8 @@ namespace ParkingProject.Application.Services
 
         public void EditGarage(Garage garage)
         {
-            throw new NotImplementedException();
+            _garageRepository.Update(garage);
+            _garageRepository.SaveChanges();
         }
 
         public Garage GetGarageById(Guid id)
