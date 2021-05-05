@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using ParkingProject.Application.Interfaces;
 using ParkingProject.Domain.Models;
 using ParkingProject.MVC.Models.Cars;
@@ -14,11 +15,13 @@ namespace ParkingProject.MVC.Controllers
     {
         private readonly ICarService _carService;
         private readonly IMapper _mapper;
+        private readonly IGarageService _garageService;
 
-        public CarsController(ICarService carService, IMapper mapper)
+        public CarsController(ICarService carService, IMapper mapper, IGarageService garageService)
         {
             _carService = carService;
             _mapper = mapper;
+            _garageService = garageService;
         }
         public IActionResult Index()
         {
@@ -37,7 +40,10 @@ namespace ParkingProject.MVC.Controllers
 
         public IActionResult Add()
         {
-           var carCreation = new CarViewModel();
+            var carCreation = new CarViewModel();
+            var garages = _garageService.GetGarages();
+
+            carCreation.GaragesList = _mapper.Map<List<SelectListItem>>(garages);
 
             return View(carCreation);
         }
@@ -49,5 +55,17 @@ namespace ParkingProject.MVC.Controllers
             _carService.InsertCar(carEntityForCreation);
             return RedirectToAction("Index");
         }
+
+        public IActionResult Delete(Guid id)
+        {
+            _carService.Delete(id);
+            return RedirectToAction("Index");
+            
+        }
+
+        //public IActionResult Edit(Car car)
+        //{
+            
+        //}
     }
 }

@@ -36,7 +36,6 @@ namespace ParkingProject.MVC
             services.AddIoCService();
 
             services.AddAutoMapper(typeof(GarageMapper));
-
             services.AddAutoMapper(typeof(CarMapper));
 
             

@@ -16,6 +16,21 @@ namespace ParkingProject.Application.Services
         {
             _carRepository = carRepository;
         }
+
+        public void Delete(Guid id)
+        {
+            var car = _carRepository.GetById(id);
+            _carRepository.Delete(car);
+           
+
+        }
+
+        public void EditCar(Car car)
+        {
+            _carRepository.Update(car);
+          
+        }
+
         public Car GetCarById(Guid id)
         {
             var car = _carRepository.GetById(id);
@@ -38,7 +53,7 @@ namespace ParkingProject.Application.Services
             }
             car.Id =  Guid.NewGuid();
             _carRepository.Add(car);
-            _carRepository.SaveChanges();
+          
         }
     }
 }

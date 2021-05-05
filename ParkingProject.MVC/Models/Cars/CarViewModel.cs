@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc.Rendering;
+using ParkingProject.MVC.Models.Garages;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -18,6 +20,10 @@ namespace ParkingProject.MVC.Models.Cars
 
         public Guid GarageId { get; set; }
 
-       // public virtual Garage Garage { get; set; }
+        public GarageViewModel Garage { get; set; }
+
+        public List<SelectListItem> GaragesList { get; set; }
+
+       
     }
 }

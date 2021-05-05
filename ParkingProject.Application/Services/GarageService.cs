@@ -20,13 +20,13 @@ namespace ParkingProject.Application.Services
         {
             var garage = _garageRepository.GetById(id);
             _garageRepository.Delete(garage);
-            _garageRepository.SaveChanges();
+            
         }
 
         public void EditGarage(Garage garage)
         {
             _garageRepository.Update(garage);
-            _garageRepository.SaveChanges();
+           
         }
 
         public Garage GetGarageById(Guid id)
@@ -52,7 +52,7 @@ namespace ParkingProject.Application.Services
             }
             garage.Id = Guid.NewGuid();
             _garageRepository.Add(garage);
-            _garageRepository.SaveChanges();
+           
         }
     }
 }
