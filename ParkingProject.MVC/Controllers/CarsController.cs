@@ -24,6 +24,14 @@ namespace ParkingProject.MVC.Controllers
             var allCars = _carService.GetCars();
             return View(_mapper.Map<List<CarViewModel>>(allCars));
            
+
+        }
+
+        public IActionResult Details(Guid id)
+        {
+            var car = _carService.GetCarById(id);
+            
+            return View(_mapper.Map<CarViewModel>(car));
         }
     }
 }
