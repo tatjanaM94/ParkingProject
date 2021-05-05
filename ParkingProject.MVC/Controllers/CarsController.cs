@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using ParkingProject.Application.Interfaces;
+using ParkingProject.Domain.Models;
 using ParkingProject.MVC.Models.Cars;
 using System;
 using System.Collections.Generic;
@@ -32,6 +33,21 @@ namespace ParkingProject.MVC.Controllers
             var car = _carService.GetCarById(id);
             
             return View(_mapper.Map<CarViewModel>(car));
+        }
+
+        public IActionResult Add()
+        {
+           var carCreation = new CarViewModel();
+
+            return View(carCreation);
+        }
+
+        [HttpPost]
+        public IActionResult Add(CarViewModel carViewModel)
+        {
+            var carEntityForCreation = _mapper.Map<Car>(carViewModel);
+            _carService.InsertCar(carEntityForCreation);
+            return RedirectToAction("Index");
         }
     }
 }
