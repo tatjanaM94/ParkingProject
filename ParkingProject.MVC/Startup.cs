@@ -37,6 +37,8 @@ namespace ParkingProject.MVC
 
             services.AddAutoMapper(typeof(GarageMapper));
 
+            services.AddAutoMapper(typeof(CarMapper));
+
             
         }
 
