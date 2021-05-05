@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ParkingProject.MVC.Models.Cars;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -15,5 +16,7 @@ namespace ParkingProject.MVC.Models.Garages
         public int MaxCarsInStock { get; set; }
        // public virtual ICollection<Car> Cars { get; set; }
         public string ImgUrl { get; set; }
+
+        public List<CarViewModel> Cars { get; set; }
     }
 }

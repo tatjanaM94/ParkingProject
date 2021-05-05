@@ -11,9 +11,11 @@ namespace ParkingProject.Application.Services
     public class GarageService : IGarageService
     {
         private readonly IGarageRepository _garageRepository;
-        public GarageService(IGarageRepository garageRepository)
+        private readonly ICarRepository _carRepository;
+        public GarageService(IGarageRepository garageRepository, ICarRepository carRepository)
         {
             _garageRepository = garageRepository;
+            _carRepository = carRepository;
         }
 
         public void DeleteGarage(Guid id)
@@ -32,6 +34,13 @@ namespace ParkingProject.Application.Services
         public Garage GetGarageById(Guid id)
         {
             var garage = _garageRepository.GetById(id);
+            var cars = _carRepository.GetAll().Where(x => x.GarageId == id).ToList();
+
+            if (cars.Count != 0)
+            {
+                garage.Cars = cars;
+            }
+
             return garage;
         }
 
