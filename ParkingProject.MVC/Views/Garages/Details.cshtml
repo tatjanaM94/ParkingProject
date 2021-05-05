@@ -53,3 +53,9 @@
         </dd>
     </dl>
 </div>
+
+<div class="p-2">
+    <a class="btn btn-danger" asp-controller="Garages" , asp-action="Delete" asp-route-id="@Model.Id">Delete</a>
+
+    <a class="btn btn-primary" asp-controller="Garages" , asp-action="Edit" asp-route-id="@Model.Id">Edit</a>
+</div>

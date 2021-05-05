@@ -15,6 +15,19 @@ namespace ParkingProject.Application.Services
         {
             _garageRepository = garageRepository;
         }
+
+        public void DeleteGarage(Guid id)
+        {
+            var garage = _garageRepository.GetById(id);
+            _garageRepository.Delete(garage);
+            _garageRepository.SaveChanges();
+        }
+
+        public void EditGarage(Garage garage)
+        {
+            throw new NotImplementedException();
+        }
+
         public Garage GetGarageById(Guid id)
         {
             var garage = _garageRepository.GetById(id);

@@ -13,8 +13,11 @@ namespace ParkingProject.Application.Interfaces
         void InsertGarage(Garage garage);
 
         //edit method
+        void EditGarage(Garage garage);
 
         // delete method
+
+        void DeleteGarage(Guid id);
 
     }
 }

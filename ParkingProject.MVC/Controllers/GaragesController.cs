@@ -49,6 +49,12 @@ namespace ParkingProject.MVC.Controllers
             return RedirectToAction("Index");
         }
 
+        public IActionResult Delete(Guid id)
+        {
+            _garageService.DeleteGarage(id);
+            return RedirectToAction("Index");
+        }
+
         
     }
 }
