@@ -63,9 +63,19 @@ namespace ParkingProject.MVC.Controllers
             
         }
 
-        //public IActionResult Edit(Car car)
-        //{
-            
-        //}
+        public IActionResult Edit(Guid id)
+        {
+            var car = _carService.GetCarById(id);
+            return View(_mapper.Map<CarViewModel>(car));
+        }
+
+        [HttpPost]
+        public IActionResult Edit(CarViewModel carModel)
+        {
+            var carForEdit = _mapper.Map<Car>(carModel);
+            _carService.EditCar(carForEdit);
+
+            return RedirectToAction("Index");
+        }
     }
 }

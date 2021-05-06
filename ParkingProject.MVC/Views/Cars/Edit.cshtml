@@ -1,0 +1,53 @@
+﻿@model ParkingProject.MVC.Models.Cars.CarViewModel
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+
+<h2>CarViewModel</h2>
+
+<form asp-action="Edit">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <input type="hidden" asp-for="Id" />
+
+    <div class="form-group">
+        <label asp-for="GaragesList" class="control-label">@Html.LabelFor(m => m.GarageId)</label>
+        @Html.DropDownListFor(m => m.GarageId, Model.GaragesList)
+        <span asp-validation-for="Brand" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Brand" class="control-label"></label>
+        <input asp-for="Brand" class="form-control" />
+        <span asp-validation-for="Brand" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Model" class="control-label"></label>
+        <input asp-for="Model" class="form-control" />
+        <span asp-validation-for="Model" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Kilometrage" class="control-label"></label>
+        <input asp-for="Kilometrage" class="form-control" />
+        <span asp-validation-for="Kilometrage" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Price" class="control-label"></label>
+        <input asp-for="Price" class="form-control" />
+        <span asp-validation-for="Price" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Engine" class="control-label"></label>
+        <input asp-for="Engine" class="form-control" />
+        <span asp-validation-for="Engine" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="ImgUrl" class="control-label"></label>
+        <input asp-for="ImgUrl" class="form-control" />
+        <span asp-validation-for="ImgUrl" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Save" class="btn btn-primary" />
+    </div>
+</form>

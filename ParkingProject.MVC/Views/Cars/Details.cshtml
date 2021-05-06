@@ -39,12 +39,12 @@
         <dd class="col-sm-10">
             @Model.Engine
         </dd>
-        <dt class="col-sm-2">
+        @*<dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.ImgUrl)
         </dt>
         <dd class="col-sm-10">
             @Model.ImgUrl
-        </dd>
+        </dd>*@
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Price)
         </dt>
@@ -53,6 +53,8 @@
         </dd>
     </dl>
 </div>
+
+<img src="@Model.ImgUrl" />
 
 <div>
 

@@ -20,8 +20,13 @@
             <th>
                 @Html.DisplayNameFor(model => model.Price)
             </th>
+            <th>
+                @Html.DisplayNameFor(model=> model.ImgUrl)
+            </th>
         </tr>
+        
     </thead>
+
     <tbody>
         @foreach (var item in Model)
         {
@@ -34,6 +39,9 @@
                 </td>
                 <td>
                     @item.Price
+                </td>
+                <td>
+                    <img style="height:80px;width:auto" src="@item.ImgUrl" />
                 </td>
                 <td>
                     <a class="btn btn-info" asp-controller="Cars" , asp-action="Details" asp-route-id="@item.Id">Details</a>
