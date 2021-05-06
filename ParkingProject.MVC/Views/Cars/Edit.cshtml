@@ -10,13 +10,11 @@
 <form asp-action="Edit">
     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
     <input type="hidden" asp-for="Id" />
-
     <div class="form-group">
         <label asp-for="GaragesList" class="control-label">@Html.LabelFor(m => m.GarageId)</label>
         @Html.DropDownListFor(m => m.GarageId, Model.GaragesList)
         <span asp-validation-for="Brand" class="text-danger"></span>
     </div>
-
     <div class="form-group">
         <label asp-for="Brand" class="control-label"></label>
         <input asp-for="Brand" class="form-control" />

@@ -66,7 +66,12 @@ namespace ParkingProject.MVC.Controllers
         public IActionResult Edit(Guid id)
         {
             var car = _carService.GetCarById(id);
-            return View(_mapper.Map<CarViewModel>(car));
+            var garages = _garageService.GetGarages();
+            var carViewModel = _mapper.Map<CarViewModel>(car);
+            carViewModel.GaragesList = _mapper.Map<List<SelectListItem>>(garages);
+
+            return View(carViewModel);
+
         }
 
         [HttpPost]
