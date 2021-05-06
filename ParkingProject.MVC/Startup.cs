@@ -8,6 +8,7 @@ using Microsoft.Extensions.Hosting;
 using ParkingProject.Infrastructure.IoC;
 using ParkingProject.Infrastucture.Data.Context;
 using ParkingProject.MVC.Mappers;
+using Serilog;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -58,6 +59,8 @@ namespace ParkingProject.MVC
             app.UseStaticFiles();
 
             app.UseRouting();
+
+            app.UseSerilogRequestLogging();
 
             app.UseAuthorization();
 
