@@ -11,10 +11,12 @@ namespace ParkingProject.Application.Services
     public class CarServices : ICarService
     {
         private readonly ICarRepository _carRepository;
+        private readonly IGarageRepository _garageRepository;
 
-        public CarServices(ICarRepository carRepository)
+        public CarServices(ICarRepository carRepository,IGarageRepository garageRepository)
         {
             _carRepository = carRepository;
+            _garageRepository = garageRepository;
         }
 
         public void Delete(Guid id)
@@ -33,6 +35,11 @@ namespace ParkingProject.Application.Services
         public Car GetCarById(Guid id)
         {
             var car = _carRepository.GetById(id);
+            var garage = _garageRepository.GetAll().Where(x => x.Id == car.GarageId).FirstOrDefault();
+            if (garage != null)
+            {
+                car.Garage = garage;
+            }
             return car;
         }
 
