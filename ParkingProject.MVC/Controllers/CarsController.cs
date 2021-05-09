@@ -33,8 +33,7 @@ namespace ParkingProject.MVC.Controllers
 
         public IActionResult Details(Guid id)
         {
-            var car = _carService.GetCarById(id);
-            
+            var car = _carService.GetCarById(id);  
             return View(_mapper.Map<CarViewModel>(car));
         }
 

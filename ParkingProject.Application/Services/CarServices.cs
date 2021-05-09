@@ -21,14 +21,13 @@ namespace ParkingProject.Application.Services
         {
             var car = _carRepository.GetById(id);
             _carRepository.Delete(car);
-           
-
+    
         }
 
         public void EditCar(Car car)
         {
             _carRepository.Update(car);
-          
+       
         }
 
         public Car GetCarById(Guid id)

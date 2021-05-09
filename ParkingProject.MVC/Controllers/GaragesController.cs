@@ -35,9 +35,8 @@ namespace ParkingProject.MVC.Controllers
 
         public IActionResult Add()
         {
-            var garageCreation = new GarageViewModel();
-
-            return View(garageCreation);
+            var garageViewModelForCreation = new GarageViewModel();
+            return View(garageViewModelForCreation);
         }
 
         [HttpPost]
@@ -45,7 +44,6 @@ namespace ParkingProject.MVC.Controllers
         {
             var garageEntityForCreation = _mapper.Map<Garage>(model);
             _garageService.InsertGarage(garageEntityForCreation);
-
             return RedirectToAction("Index");
         }
 

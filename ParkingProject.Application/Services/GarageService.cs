@@ -21,8 +21,14 @@ namespace ParkingProject.Application.Services
         public void DeleteGarage(Guid id)
         {
             var garage = _garageRepository.GetById(id);
-            _garageRepository.Delete(garage);
-            
+            var cars = _carRepository.GetAll().Where(x => x.GarageId == id).ToList();
+
+            foreach (var car in cars)
+            {
+                car.GarageId = Guid.Empty;
+            }
+
+            _garageRepository.Delete(garage);           
         }
 
         public void EditGarage(Garage garage)

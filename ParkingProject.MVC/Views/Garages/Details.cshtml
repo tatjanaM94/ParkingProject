@@ -4,76 +4,24 @@
     ViewData["Title"] = "Details";
 }
 
-
-<div>
-    <h4>GarageViewModel</h4>
-    <hr />
-    <div class="row">
-        <div class="col-6">
-            <dl>
-                <dt class="col-sm-2">
-                    @Html.DisplayNameFor(model => model.Id)
-                </dt>
-                <dd class="col-sm-10">
-                    @Model.Id
-                </dd>
-                <dt class="col-sm-2">
-                    @Html.DisplayNameFor(model => model.Name)
-                </dt>
-                <dd class="col-sm-10">
-                    @Model.Name
-                </dd>
-                <dt class="col-sm-2">
-                    @Html.DisplayNameFor(model => model.Address)
-                </dt>
-                <dd class="col-sm-10">
-                    @Model.Address
-                </dd>
-                <dt class="col-sm-2">
-                    @Html.DisplayNameFor(model => model.Email)
-                </dt>
-                <dd class="col-sm-10">
-                    @Model.Email
-                </dd>
-                <dt class="col-sm-2">
-                    @Html.DisplayNameFor(model => model.MaxCarsInStock)
-                </dt>
-                <dd class="col-sm-10">
-                    @Model.MaxCarsInStock
-                </dd>
-                @*<dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.ImgUrl)
-            </dt>
-            <dd class="col-sm-10">
-                @Model.ImgUrl
-            </dd>*@
-
-
-                <dt class="col-sm-2">
-                    @Html.DisplayNameFor(model => model.PhoneNumber)
-                </dt>
-                <dd class="col-sm-10">
-                    @Model.PhoneNumber
-                </dd>
-
-            </dl>
-        </div>
-
-        <div class="col-6">
-            <img src="@Model.ImgUrl" />
-        </div>
-
-    </div>
-   
-  
-</div>
-
-
-
+<h1>Garage @Model.Name Details</h1>
+<hr />
 <div class="p-2">
-    <a class="btn btn-danger" asp-controller="Garages" , asp-action="Delete" asp-route-id="@Model.Id">Delete</a>
-
     <a class="btn btn-primary" asp-controller="Garages" , asp-action="Edit" asp-route-id="@Model.Id">Edit</a>
+    <a class="btn btn-danger" asp-controller="Garages" , asp-action="Delete" asp-route-id="@Model.Id">Delete</a>
+</div>
+<div class="row">
+    <div class="col-6">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">@Html.DisplayNameFor(model => model.Name) : @Html.DisplayFor(model => model.Name)</li>
+            <li class="list-group-item">@Html.DisplayNameFor(model => model.Address) : @Html.DisplayFor(model => model.Address)</li>
+            <li class="list-group-item">@Html.DisplayNameFor(model => model.Email) : @Html.DisplayFor(model => model.Email)</li>
+            <li class="list-group-item">@Html.DisplayNameFor(model => model.MaxCarsInStock) : @Html.DisplayFor(model => model.MaxCarsInStock)</li>
+        </ul>
+    </div>
+    <div class="col-6">
+        <img style="width: 100%; height: 300px" src="@Model.ImgUrl" />
+    </div>
 </div>
 
 @if (Model.Cars.Count == 0)
