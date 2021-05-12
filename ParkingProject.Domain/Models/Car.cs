@@ -13,10 +13,8 @@ namespace ParkingProject.Domain.Models
         public string Engine { get; set; }
         public int Price { get; set; }
         public string ImgUrl { get; set; }
-
-
-        public Guid GarageId { get; set; }
-
+        public string  RegistrationPlate { get; set; }
+        public Guid? GarageId { get; set; }
         public virtual Garage Garage { get; set; }
 
     }

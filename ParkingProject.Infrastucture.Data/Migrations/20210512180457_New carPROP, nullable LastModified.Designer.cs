@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ParkingProject.Infrastucture.Data.Context;
 
 namespace ParkingProject.Infrastucture.Data.Migrations
 {
     [DbContext(typeof(LibraryDbContext))]
-    partial class LibraryDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210512180457_New carPROP, nullable LastModified")]
+    partial class NewcarPROPnullableLastModified
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -37,7 +39,7 @@ namespace ParkingProject.Infrastucture.Data.Migrations
                     b.Property<string>("Engine")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid?>("GarageId")
+                    b.Property<Guid>("GarageId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("ImgUrl")
@@ -113,7 +115,9 @@ namespace ParkingProject.Infrastucture.Data.Migrations
                 {
                     b.HasOne("ParkingProject.Domain.Models.Garage", "Garage")
                         .WithMany("Cars")
-                        .HasForeignKey("GarageId");
+                        .HasForeignKey("GarageId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }
