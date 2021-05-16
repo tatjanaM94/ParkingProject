@@ -75,8 +75,10 @@ namespace ParkingProject.MVC
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
           
-            parkingProject.InicializeCars();
+            
             parkingProject.InitializeGarage();
+           
+            parkingProject.InicializeCars();
         }
     }
 }

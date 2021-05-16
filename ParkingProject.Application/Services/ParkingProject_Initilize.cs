@@ -27,14 +27,13 @@ namespace ParkingProject.Application.Services
                 var car1 = new Car()
                 {
                     //Id = Guid.NewGuid(),
-                    Id = Guid.Parse("d0f6b9a6-abf8-400e-ac0e-e08635e08646"),
+                    Id = Guid.NewGuid(),
                     GarageId = Guid.Parse("8b3c08d1-37fb-4879-9fb1-f456e366a030"),
                     Brand = "Opel",
                     Model = "Corsa",
                     Engine = "V8",
                     Kilometrage = 44,
-                    Price = 1400,
-                    //RegistrationPlates = "OC-345",
+                    Price = 1400,                  
                     Created = DateTime.UtcNow,
                     CreatedBy = "Tatjana",
 
@@ -44,14 +43,13 @@ namespace ParkingProject.Application.Services
 
                 var car2 = new Car()
                 {
-                    Id = Guid.Parse("c475e20a-4a20-4e1a-9b84-149623d68f4f"),
+                    Id = Guid.NewGuid(),
                     GarageId = Guid.Parse("e1a4cfd6-14b2-4aec-aa93-8822f0b84a46"),
                     Brand = "Citroen",
                     Model = "C4",
                     Engine = "V8",
                     Kilometrage = 44,
-                    Price = 1400,
-                    //RegistrationPlates = "CC-234",
+                    Price = 1400,                  
                     Created = DateTime.UtcNow,
                     CreatedBy = "Tatjana",
                 };
@@ -74,7 +72,6 @@ namespace ParkingProject.Application.Services
                     Email = "garage@email.com",
                     PhoneNumber = "464846466",
                     MaxCarsInStock = 50,
-                    ImgUrl = "https://app.imgforce.com/images/user/miA_1620326260_download.jpg",
                     CreatedBy = "Tatjana",
                     Created = DateTime.UtcNow
                 };
@@ -88,8 +85,7 @@ namespace ParkingProject.Application.Services
                     Address = "Car-OT",
                     Email = "some@email.com",
                     PhoneNumber = "5465464",
-                    MaxCarsInStock = 51,
-                    ImgUrl = "https://app.imgforce.com/images/user/06V_1620326184_1-371777904805.jpg",
+                    MaxCarsInStock = 51,                 
                     CreatedBy = "Tatjana",
                     Created = DateTime.UtcNow
                 };
