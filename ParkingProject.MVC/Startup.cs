@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using ParkingProject.Application.Interfaces;
 using ParkingProject.Infrastructure.IoC;
 using ParkingProject.Infrastucture.Data.Context;
 using ParkingProject.MVC.Mappers;
@@ -45,8 +46,9 @@ namespace ParkingProject.MVC
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env,IServiceProvider serviceProvider)
         {
+            var parkingProject = serviceProvider.GetService<IParkingProject_Inicialize>();
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -72,6 +74,8 @@ namespace ParkingProject.MVC
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
+            parkingProject.InitializeGarage();
+            parkingProject.InicializeCars();
         }
     }
 }

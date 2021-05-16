@@ -15,15 +15,22 @@ namespace ParkingProject.Infrastructure.IoC
         {
             // application
             services.AddScoped<IGarageService, GarageService>();
+            services.AddScoped<ICarService, CarServices>();
+
+            services.AddScoped<IParkingProject_Inicialize, ParkingProject_Initilize>();
 
             //  domain.interfaces-> infrastructure.data
             services.AddScoped<IGarageRepository, GarageRepository>();
-
-            // application
-            services.AddScoped<ICarService, CarServices>();
-
-            //domail.interface-> infrastructure.data
             services.AddScoped<ICarRepository, CarRepository>();
+
+
+
+
+          
+            
+
+
+
 
         }
     }

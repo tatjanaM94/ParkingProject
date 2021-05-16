@@ -52,10 +52,13 @@ namespace ParkingProject.Application.Services
 
         public void InsertCar(Car car)
         {
+
+            //car.RegistrationPlates = 
+            //    $"{car.Brand.Substring(0, 1).ToUpper()}{car.Model.Substring(0, 1).ToUpper()}-{DateTime.Now.Millisecond}";
             var addCar = _carRepository.GetAll().Where(x => x.Model == car.Model).FirstOrDefault();
             if (addCar!= null)
             {
-                throw new Exception("This Car Model already exists");
+                throw new Exception("This Car Registration Plate already exists");
             }
             car.Id =  Guid.NewGuid();
             _carRepository.Add(car);
