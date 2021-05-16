@@ -26,7 +26,8 @@ namespace ParkingProject.Application.Services
             {
                 var car1 = new Car()
                 {
-                    Id = Guid.NewGuid(),
+                    //Id = Guid.NewGuid(),
+                    Id = Guid.Parse("d0f6b9a6-abf8-400e-ac0e-e08635e08646"),
                     GarageId = Guid.Parse("8b3c08d1-37fb-4879-9fb1-f456e366a030"),
                     Brand = "Opel",
                     Model = "Corsa",
@@ -39,12 +40,12 @@ namespace ParkingProject.Application.Services
 
                 };
                 _carRepository.Add(car1);
-                    
+
 
                 var car2 = new Car()
                 {
-                    Id = Guid.NewGuid(),
-                    GarageId = Guid.NewGuid(),
+                    Id = Guid.Parse("c475e20a-4a20-4e1a-9b84-149623d68f4f"),
+                    GarageId = Guid.Parse("e1a4cfd6-14b2-4aec-aa93-8822f0b84a46"),
                     Brand = "Citroen",
                     Model = "C4",
                     Engine = "V8",
@@ -67,7 +68,7 @@ namespace ParkingProject.Application.Services
 
                 var garage1 = new Garage()
                 {
-                    Id = Guid.Parse("8b3c08d1-37fb-4879-9fb1-f456e366a030"),
+                    Id = Guid.Parse("8b3c08d1-37fb-4879-9fb1-f456e366a030"), 
                     Name = "ГАРАЖА",
                     Address = "Street-OT",
                     Email = "garage@email.com",
