@@ -33,7 +33,8 @@ namespace ParkingProject.Application.Services
                     Model = "Corsa",
                     Engine = "V8",
                     Kilometrage = 44,
-                    Price = 1400,                  
+                    Price = 1400,
+                    RegistrationPlate = "OC-345",
                     Created = DateTime.UtcNow,
                     CreatedBy = "Tatjana",
 
@@ -49,7 +50,8 @@ namespace ParkingProject.Application.Services
                     Model = "C4",
                     Engine = "V8",
                     Kilometrage = 44,
-                    Price = 1400,                  
+                    Price = 1400,
+                    RegistrationPlate = "CC-234",
                     Created = DateTime.UtcNow,
                     CreatedBy = "Tatjana",
                 };

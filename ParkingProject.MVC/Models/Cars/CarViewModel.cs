@@ -17,6 +17,8 @@ namespace ParkingProject.MVC.Models.Cars
         public int Price { get; set; }
         public string ImgUrl { get; set; }
 
+        public string RegistrationPlate { get; set; }
+
 
         public Guid GarageId { get; set; }
 
