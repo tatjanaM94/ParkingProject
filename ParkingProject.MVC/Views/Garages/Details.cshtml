@@ -40,10 +40,14 @@ else
         <tbody>
             @foreach (var car in Model.Cars)
             {
-                <tr>
-                    <td>@car.Model</td>
-                    <td>@car.Brand</td>
-                </tr>
+            <tr>
+                <td>@car.Model</td>
+                <td>@car.Brand</td>
+                <td>
+                    <a class="btn btn-primary" asp-controller="Cars" , asp-action="Edit" asp-route-id="@car.Id">Edit</a>
+                </td>
+                
+            </tr>
             }
         </tbody>
     </table>
