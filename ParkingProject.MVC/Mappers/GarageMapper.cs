@@ -19,6 +19,8 @@ namespace ParkingProject.MVC.Mappers
                     .ForMember(dest => dest.Value, opt => opt.MapFrom(src => src.Id.ToString()))
                     .ForMember(dest => dest.Text, opt => opt.MapFrom(src => src.Name.ToString()))
                     .ReverseMap();
+
+            CreateMap<IReadOnlyList<Garage>, Garage>();
         }
     }
 }

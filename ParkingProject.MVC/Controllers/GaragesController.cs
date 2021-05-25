@@ -27,6 +27,7 @@ namespace ParkingProject.MVC.Controllers
 
         }
 
+        [ResponseCache(Duration = 15, VaryByQueryKeys = new string[] { "id"})]
         public IActionResult Details(Guid id)
         {
             var garage = _garageService.GetGarageById(id);

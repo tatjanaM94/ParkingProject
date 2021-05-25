@@ -29,6 +29,11 @@ namespace ParkingProject.MVC
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
+            services.AddResponseCaching();
+
+            services.AddMemoryCache();
+
             services.AddControllersWithViews();
 
 
@@ -60,6 +65,7 @@ namespace ParkingProject.MVC
                 app.UseHsts();
             }
             app.UseHttpsRedirection();
+            app.UseResponseCaching();
             app.UseStaticFiles();
 
             app.UseRouting();
