@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ParkingProject.Infrastructu
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ParkingProject.MVC", "ParkingProject.MVC\ParkingProject.MVC.csproj", "{23744FDE-2437-4259-80B4-9C3F6DA4490C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParkingProject.Tests", "ParkingProject.Tests\ParkingProject.Tests.csproj", "{660461E0-4FE7-47E4-9250-5C72852ADCCB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{23744FDE-2437-4259-80B4-9C3F6DA4490C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{23744FDE-2437-4259-80B4-9C3F6DA4490C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{23744FDE-2437-4259-80B4-9C3F6DA4490C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{660461E0-4FE7-47E4-9250-5C72852ADCCB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{660461E0-4FE7-47E4-9250-5C72852ADCCB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{660461E0-4FE7-47E4-9250-5C72852ADCCB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{660461E0-4FE7-47E4-9250-5C72852ADCCB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

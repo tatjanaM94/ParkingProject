@@ -13,6 +13,8 @@ namespace ParkingProject.MVC.Mappers
         public CarMapper()
         {
             CreateMap<Car, CarViewModel>().ReverseMap();
+
+            CreateMap<IReadOnlyList<Garage>, Garage>();
         }
 
         

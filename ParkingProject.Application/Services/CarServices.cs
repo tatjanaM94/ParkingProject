@@ -1,4 +1,6 @@
-﻿using ParkingProject.Application.Interfaces;
+﻿using AutoMapper;
+using Microsoft.Extensions.Caching.Memory;
+using ParkingProject.Application.Interfaces;
 using ParkingProject.Domain.Interfaces;
 using ParkingProject.Domain.Models;
 using System;
@@ -12,17 +14,22 @@ namespace ParkingProject.Application.Services
     {
         private readonly ICarRepository _carRepository;
         private readonly IGarageRepository _garageRepository;
-
-        public CarServices(ICarRepository carRepository,IGarageRepository garageRepository)
+        private IMemoryCache _memoryCache;
+        private string _allCarsKey = "All_Cars_Cache";
+        private IMapper _mapper;
+        public CarServices(ICarRepository carRepository,IGarageRepository garageRepository,IMemoryCache memoryCache, IMapper mapper)
         {
             _carRepository = carRepository;
             _garageRepository = garageRepository;
+            _memoryCache = memoryCache;
+            _mapper = mapper;
         }
 
         public void Delete(Guid id)
         {
             var car = _carRepository.GetById(id);
             _carRepository.Delete(car);
+            _memoryCache.Remove(_allCarsKey);
     
         }
 
@@ -45,8 +52,18 @@ namespace ParkingProject.Application.Services
 
         public IEnumerable<Car> GetCars()
         {
-            var cars = new List<Car>();
-            cars = _carRepository.GetAll().ToList();
+            List<Car> cars;
+            cars = (List<Car>)_memoryCache.Get(_allCarsKey);
+
+            if (cars == null)
+            {
+                var carEntity = _carRepository.GetAll();
+                cars = _mapper.Map<List<Car>>(carEntity);
+
+                _memoryCache.Set(_allCarsKey, cars, new MemoryCacheEntryOptions().
+                    SetSlidingExpiration(TimeSpan.FromSeconds(40)).
+                    SetAbsoluteExpiration(TimeSpan.FromSeconds(120)));
+            }
             return cars;
         }
 
@@ -62,6 +79,7 @@ namespace ParkingProject.Application.Services
             }
             car.Id =  Guid.NewGuid();
             _carRepository.Add(car);
+            _memoryCache.Remove(_allCarsKey);
           
         }
     }
